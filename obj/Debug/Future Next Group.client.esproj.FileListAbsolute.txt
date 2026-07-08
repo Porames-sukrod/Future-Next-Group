@@ -1,0 +1,5 @@
+C:\Users\User\OneDrive - Promptnow Co., Ltd\Documents\Future Next Group\Future Next Group.client\obj\Debug\Future Next Group.client.esproj.CoreCompileInputs.cache
+C:\Users\INNO-Dev06\Downloads\Future Next Group\Future Next Group\Future Next Group.client\obj\Debug\Future Next Group.client.esproj.CoreCompileInputs.cache
+C:\Users\INNO-Dev06\Project\Future Next Group\Future Next Group\Future Next Group.client\obj\Debug\Future Next Group.client.esproj.CoreCompileInputs.cache
+C:\Users\MyPC_Fuse\Desktop\Future Next Group\Future Next Group.client\obj\Debug\Future Next Group.client.esproj.CoreCompileInputs.cache
+C:\Users\MyPC_Fuse\Desktop\Future Next Group ตัวทำ\Future Next Group\Future Next Group.client\obj\Debug\Future Next Group.client.esproj.CoreCompileInputs.cache

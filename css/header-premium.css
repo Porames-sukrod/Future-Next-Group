@@ -1,0 +1,935 @@
+/* ============================================================
+   HEADER PREMIUM EFFECTS
+   Loaded via <link> in header.html
+   ============================================================ */
+
+
+/* ============================================================
+   HEADER PREMIUM EFFECTS
+   Loaded via <link> in header.html
+   ============================================================ */
+
+
+/* ── LOGO 3D ── */
+
+/* perspective wrapper */
+.logo-header2 {
+  perspective: 600px;
+  perspective-origin: 50% 50%;
+}
+
+/* the anchor/img wrapper gets the 3D transform */
+.logo-header2 a {
+  display: inline-block;
+  transform-style: preserve-3d;
+  transform: rotateX(0deg) rotateY(0deg) scale(1);
+  transition:
+    transform 0.08s linear,
+    filter    0.35s ease;
+  will-change: transform;
+  position: relative;
+}
+
+/* Idle floating animation */
+@keyframes logoFloat {
+  0%, 100% { transform: translateY(0px) rotateX(4deg) rotateY(-3deg); }
+  33%       { transform: translateY(-5px) rotateX(-3deg) rotateY(5deg); }
+  66%       { transform: translateY(-2px) rotateX(6deg) rotateY(-6deg); }
+}
+.logo-header2 a.logo-idle {
+  animation: logoFloat 6s ease-in-out infinite;
+}
+
+/* Glow drop-shadow on hover */
+.logo-header2 a:hover {
+  filter: drop-shadow(0 0 14px rgba(0, 180, 216, 0.75))
+          drop-shadow(0 6px 24px rgba(0, 100, 200, 0.5));
+}
+
+/* Reflection pseudo — bottom mirror */
+.logo-header2 a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  border-radius: inherit;
+  transform: rotateX(180deg) translateY(100%) scaleY(0.35);
+  transform-origin: bottom center;
+  opacity: 0;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,0.22) 0%, transparent 80%);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.22) 0%, transparent 80%);
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+.logo-header2 a:hover::after {
+  opacity: 1;
+}
+
+/* Img itself — no distortion needed */
+.logo-header2 img {
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+/* Disable complex 3D in sidebar mode (layout is vertical) */
+body.nav-sidebar .logo-header2 a.logo-idle {
+  animation: none;
+}
+body.nav-sidebar .logo-header2 a {
+  transform: none !important;
+}
+
+
+/* ── 0. Ocean-wave bottom decoration ── */
+/* Ensure header content stays above waves */
+.header .header-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Scrolled: darken slightly */
+.header.header-sticky.is-scrolled {
+  background: linear-gradient(135deg, #3a6199 0%, #091d42 100%) !important;
+}
+
+
+/* ── 1. Entrance Animation — staggered fade-up ── */
+@keyframes menuItemFadeUp {
+  from { opacity: 0; transform: translateY(-14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.menu-primary-menu .menu-item {
+  animation: menuItemFadeUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.menu-primary-menu .menu-item:nth-child(1) { animation-delay: 0.04s; }
+.menu-primary-menu .menu-item:nth-child(2) { animation-delay: 0.11s; }
+.menu-primary-menu .menu-item:nth-child(3) { animation-delay: 0.18s; }
+.menu-primary-menu .menu-item:nth-child(4) { animation-delay: 0.25s; }
+.menu-primary-menu .menu-item:nth-child(5) { animation-delay: 0.32s; }
+.menu-primary-menu .menu-item:nth-child(6) { animation-delay: 0.39s; }
+
+
+/* ── 2. Nav: position context for the sliding blob ── */
+.main-menu {
+  position: relative;
+  overflow: visible;
+}
+.menu-primary-menu {
+  position: relative;
+}
+
+
+/* ── 3. Sliding magnetic blob (injected by JS) ── */
+.menu-nav-blob {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 44px;
+  width: 80px;
+  transform: translateY(-50%);
+  border-radius: 10px;
+  background: rgba(0, 180, 216, 0.12);
+  border: 1px solid rgba(0, 180, 216, 0.25);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+  transition:
+    left   0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+    width  0.3s  cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity 0.25s ease;
+}
+.menu-nav-blob.is-visible {
+  opacity: 1;
+}
+
+
+/* ── 4. Link: keep text above blob, allow transform ── */
+.menu-primary-menu .item-link {
+  z-index: 1 !important;
+  transition:
+    background  0.22s ease,
+    color       0.22s ease,
+    transform   0.2s  cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+
+/* ── 5. Hover: subtle scale + lift ── */
+.menu-primary-menu .item-link:hover {
+  transform: scale(1.04) translateY(-1px) !important;
+}
+
+/* Don't scale in sidebar mode */
+body.nav-sidebar .menu-primary-menu .item-link:hover {
+  transform: none !important;
+}
+
+
+/* ── 6. Hover: animated gradient text ── */
+@keyframes gradientShift {
+  0%   { background-position: 0%   center; }
+  100% { background-position: 200% center; }
+}
+.menu-primary-menu .item-link:hover span {
+  background: linear-gradient(90deg, #43BAFF 0%, #a78bfa 40%, #f9a8d4 70%, #43BAFF 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 2s linear infinite;
+  display: inline-block;
+}
+
+
+/* ── 7. Neon glow on accent bar (::before) ── */
+.menu-primary-menu .item-link:hover::before {
+  box-shadow: 0 0 10px 3px rgba(0, 180, 216, 0.7),
+              0 0 20px 6px rgba(0, 180, 216, 0.3) !important;
+}
+.menu-primary-menu .menu-item.active      .item-link::before,
+.menu-primary-menu .menu-item.current-menu-item .item-link::before {
+  box-shadow: 0 0 12px 4px rgba(0, 180, 216, 0.8),
+              0 0 24px 8px rgba(0, 180, 216, 0.35) !important;
+}
+
+
+/* ── 8. Active item: pulsing glow on accent bar ── */
+@keyframes barPulse {
+  0%, 100% { box-shadow: 0 0 10px 3px rgba(0, 180, 216, 0.65); }
+  50%       { box-shadow: 0 0 20px 8px rgba(0, 180, 216, 0.22); }
+}
+.menu-primary-menu .menu-item.active .item-link::before {
+  animation: barPulse 2.4s ease-in-out infinite !important;
+}
+
+
+/* ── 9. Shimmer sweep overlay (injected into each item via JS) ── */
+@keyframes shimmerSweep {
+  0%   { left: -100%; opacity: 0; }
+  20%  { opacity: 1; }
+  80%  { opacity: 1; }
+  100% { left: 140%; opacity: 0; }
+}
+.menu-item-shimmer {
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  background: linear-gradient(
+    105deg,
+    transparent 30%,
+    rgba(255,255,255,0.18) 48%,
+    rgba(255,255,255,0.30) 50%,
+    rgba(255,255,255,0.18) 52%,
+    transparent 70%
+  );
+  width: 60%;
+  top: 0;
+  bottom: 0;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 2;
+}
+.menu-primary-menu .item-link:hover .menu-item-shimmer {
+  animation: shimmerSweep 0.65s ease forwards;
+}
+/* Show shimmer on each hover entry */
+.menu-primary-menu .item-link {
+  overflow: hidden;
+}
+
+
+/* ── 10. Ripple on click ── */
+@keyframes rippleExpand {
+  from { transform: translate(-50%, -50%) scale(0); opacity: 0.55; }
+  to   { transform: translate(-50%, -50%) scale(3.5); opacity: 0; }
+}
+.menu-ripple {
+  position: absolute;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  background: rgba(0, 180, 216, 0.5);
+  pointer-events: none;
+  z-index: 3;
+  animation: rippleExpand 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+
+/* ── 11. Active: text also glows ── */
+.menu-primary-menu .menu-item.active .item-link span {
+  color: #00e5ff;
+  text-shadow: 0 0 14px rgba(0, 180, 216, 0.75);
+}
+
+
+/* ── 12. Sidebar: disable incompatible effects ── */
+body.nav-sidebar .menu-nav-blob,
+body.nav-sidebar .menu-item-shimmer {
+  display: none !important;
+}
+body.nav-sidebar .menu-primary-menu .item-link:hover span {
+  background: none;
+  -webkit-text-fill-color: unset;
+  animation: none;
+}
+body.nav-sidebar .menu-primary-menu .menu-item.active .item-link::before {
+  animation: none !important;
+}
+
+
+/* ── 13. Letter spacing breathe on hover ── */
+.menu-primary-menu .item-link span {
+  display: inline-block;
+  transition: letter-spacing 0.3s ease;
+}
+.menu-primary-menu .item-link:hover span {
+  letter-spacing: 0.07em;
+}
+
+
+/* ── 14. Focus outline (accessibility) ── */
+.menu-primary-menu .item-link:focus-visible {
+  outline: 2px solid #00b4d8;
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+
+/* ── 15. Color Customizer — Gradient BG UI ── */
+
+/* Solid / Gradient toggle */
+.ccp-mode-toggle {
+  display: flex;
+  gap: 2px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 2px;
+}
+.ccp-mode-btn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 9px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.2s ease, color 0.2s ease;
+  line-height: 1;
+}
+.ccp-mode-btn.ccp-mode-active {
+  background: #43BAFF;
+  color: #0f222e;
+}
+.ccp-mode-btn:hover:not(.ccp-mode-active) {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+/* Indented sub-rows */
+.ccp-bg-sub {
+  padding-left: 20px !important;
+}
+
+/* Direction select */
+.ccp-select {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 11px;
+  font-family: inherit;
+  padding: 5px 6px;
+  cursor: pointer;
+  outline: none;
+  max-width: 120px;
+  transition: border-color 0.2s ease;
+}
+.ccp-select:hover { border-color: rgba(67, 186, 255, 0.45); }
+.ccp-select option { background: #1a1a2e; color: #fff; }
+
+/* Live preview strip */
+.ccp-bg-preview {
+  height: 22px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+  transition: background 0.35s ease;
+  flex-shrink: 0;
+}
+
+/* Gradient-only rows hidden by default — shown via JS */
+.ccp-grad-only {
+  display: none;
+}
+/* Linear-gradient-only rows (e.g., Direction) hidden by default — shown via JS */
+.ccp-linear-only {
+  display: none;
+}
+
+/* Mode button active = ocean teal */
+.ccp-mode-btn.ccp-mode-active {
+  background: #00b4d8;
+  color: #0d2653;
+}
+
+
+/* ── 16. Wave controls in CCP ── */
+
+/* Section divider row (label + toggle switch) */
+.ccp-section-divider {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 6px;
+  padding: 6px 0 2px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* Toggle switch */
+.ccp-toggle-wrap {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 0;
+}
+.ccp-toggle-wrap input[type="checkbox"] {
+  display: none;
+}
+.ccp-toggle-track {
+  position: relative;
+  width: 32px;
+  height: 18px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 9px;
+  transition: background 0.22s ease, border-color 0.22s ease;
+}
+.ccp-toggle-wrap input:checked + .ccp-toggle-track {
+  background: #00b4d8;
+  border-color: #00b4d8;
+}
+.ccp-toggle-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+  background: #eef5f8;
+  border-radius: 50%;
+  transition: left 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+.ccp-toggle-wrap input:checked + .ccp-toggle-track .ccp-toggle-thumb {
+  left: 16px;
+}
+
+/* Range slider */
+.ccp-slider-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.ccp-range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 90px;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.15);
+  outline: none;
+  cursor: pointer;
+}
+.ccp-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #00b4d8;
+  cursor: pointer;
+  box-shadow: 0 0 6px rgba(0, 180, 216, 0.6);
+  transition: transform 0.15s ease;
+}
+.ccp-range::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+.ccp-range::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #00b4d8;
+  border: none;
+  cursor: pointer;
+}
+.ccp-range-val {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.5);
+  min-width: 30px;
+  text-align: right;
+}
+
+/* ============================================================
+   17. MOBILE MENU — Ocean / Desktop Theme
+   Applies to both Bootstrap offcanvas (#canvasMobile)
+   and the custom .mobile-sidebar
+   ============================================================ */
+
+/* ── Bootstrap Offcanvas (#canvasMobile) ── */
+.mobile-nav-wrap {
+  --bs-offcanvas-bg: transparent;
+}
+.mobile-nav-wrap .inner-mobile-nav {
+  background: linear-gradient(160deg, #2a5aa0 0%, #0d2653 60%, #081838 100%) !important;
+  border-right: 1px solid rgba(0, 180, 216, 0.18) !important;
+  box-shadow: 4px 0 30px rgba(0, 0, 0, 0.5) !important;
+}
+.mobile-nav-wrap .inner-mobile-nav .top-header-mobi {
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+  margin-bottom: 4px;
+}
+.mobile-nav-wrap .logo-mobile {
+  max-width: 150px;
+}
+.mobile-nav-wrap .logo-mobile img {
+  filter: brightness(1.1) drop-shadow(0 2px 10px rgba(0, 180, 216, 0.35));
+}
+.mobile-nav-wrap .inner-mobile-nav .mobile-nav-close {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  border-radius: 50% !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  transition: background 0.2s, border-color 0.2s;
+}
+.mobile-nav-wrap .inner-mobile-nav .mobile-nav-close svg {
+  width: 14px !important;
+  height: 14px !important;
+}
+.mobile-nav-wrap .inner-mobile-nav .mobile-nav-close:hover {
+  background: rgba(0, 180, 216, 0.22) !important;
+  border-color: rgba(0, 180, 216, 0.55) !important;
+}
+
+/* Nav items */
+#menu-mobile > li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07) !important;
+}
+#menu-mobile > li > a {
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.78) !important;
+  padding: 15px 6px 15px 12px !important;
+  position: relative;
+  transition: color 0.25s ease, padding-left 0.25s ease, background 0.25s ease;
+  border-radius: 8px;
+}
+#menu-mobile > li > a::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%) scaleY(0);
+  width: 3px;
+  height: 55%;
+  background: #00b4d8;
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  opacity: 0;
+}
+#menu-mobile > li > a:hover,
+#menu-mobile > li.current-menu-item > a {
+  color: #fff !important;
+  background: rgba(0, 180, 216, 0.1) !important;
+}
+#menu-mobile > li > a:hover::before,
+#menu-mobile > li.current-menu-item > a::before {
+  transform: translateY(-50%) scaleY(1);
+  opacity: 1;
+}
+#menu-mobile .sub-menu-mobile .menu-item a {
+  color: rgba(255, 255, 255, 0.6) !important;
+  font-size: 14px !important;
+  padding: 8px 14px !important;
+  transition: color 0.2s;
+}
+#menu-mobile .sub-menu-mobile .menu-item a:hover {
+  color: #43BAFF !important;
+}
+
+/* Socials area */
+.mobile-nav-wrap .socials-mobile .date {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Lang switcher injected into mobile nav */
+.mobile-nav-lang {
+  padding: 16px 0 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.09);
+  margin-top: 8px;
+}
+.mobile-nav-lang .language-switcher {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 4px;
+}
+
+/* ── Custom .mobile-sidebar — Ocean theme ── */
+@media (max-width: 767px) {
+  #canvasMobile #menu-mobile > li > a {
+    letter-spacing: 0 !important;
+    overflow: visible !important;
+    text-indent: 0 !important;
+    white-space: normal !important;
+  }
+
+  #canvasMobile #menu-mobile > li.current-menu-item > a,
+  #canvasMobile #menu-mobile > li.current-menu-mobile-item > a {
+    background: rgba(114, 255, 240, 0.16) !important;
+    color: #ffffff !important;
+  }
+
+  #canvasMobile #menu-mobile > li.current-menu-item > a::before,
+  #canvasMobile #menu-mobile > li.current-menu-mobile-item > a::before {
+    opacity: 0 !important;
+    transform: translateY(-50%) scaleY(0) !important;
+  }
+
+  #mobileNavLang {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    padding: 14px 0 0 !important;
+    margin-top: 10px !important;
+  }
+
+  #mobileNavLang .language-switcher {
+    width: max-content !important;
+    max-width: 100% !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    padding: 3px !important;
+    border-radius: 8px !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  }
+
+  #mobileNavLang .lang-btn {
+    width: 30px !important;
+    min-width: 30px !important;
+    height: 28px !important;
+    min-height: 28px !important;
+    max-height: 28px !important;
+    padding: 0 !important;
+    border-radius: 6px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  #mobileNavLang .lang-btn.lang-active {
+    /* background: #eef5f8 !important; */
+    box-shadow: 0 6px 16px rgba(255, 255, 255, 0.16) !important;
+  }
+
+  #mobileNavLang .lang-code {
+    display: none !important;
+  }
+
+  #mobileNavLang .lang-flag {
+    width: 18px !important;
+    height: 13px !important;
+    flex: 0 0 18px !important;
+  }
+}
+
+.menu-nav-blob {
+  background: linear-gradient(135deg, rgba(0, 169, 214, 0.28), rgba(188, 230, 255, 0.14)) !important;
+  border-color: rgba(188, 230, 255, 0.28) !important;
+}
+
+.menu-primary-menu .item-link:hover::before,
+.menu-primary-menu .menu-item.active .item-link::before,
+.menu-primary-menu .menu-item.current-menu-item .item-link::before {
+  box-shadow: 0 0 12px 3px rgba(100, 215, 241, 0.62),
+              0 0 24px 6px rgba(0, 169, 214, 0.28) !important;
+}
+
+.mobile-sidebar {
+  background: linear-gradient(160deg, #2a5aa0 0%, #0d2653 60%, #081838 100%) !important;
+  border-right: 1px solid rgba(0, 180, 216, 0.18) !important;
+  box-shadow: 4px 0 30px rgba(0, 0, 0, 0.5) !important;
+}
+.sidebar-header {
+  border-bottom-color: rgba(255, 255, 255, 0.09) !important;
+}
+.sidebar-logo img {
+  max-height: 42px;
+  filter: brightness(1.1) drop-shadow(0 2px 10px rgba(0, 180, 216, 0.35));
+}
+.sidebar-close {
+  width: 38px !important;
+  height: 38px !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  border-radius: 50% !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, border-color 0.2s;
+}
+.sidebar-close:hover {
+  background: rgba(0, 180, 216, 0.22) !important;
+  border-color: rgba(0, 180, 216, 0.55) !important;
+}
+.sidebar-menu li {
+  border-bottom-color: rgba(255, 255, 255, 0.07) !important;
+}
+.sidebar-menu li a {
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.78) !important;
+  padding: 15px 6px 15px 12px !important;
+  position: relative;
+  transition: color 0.25s ease, background 0.25s ease;
+  border-radius: 8px;
+}
+.sidebar-menu li a::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%) scaleY(0);
+  width: 3px;
+  height: 55%;
+  background: #00b4d8;
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  opacity: 0;
+}
+.sidebar-menu li a:hover,
+.sidebar-menu li.current-menu-item a {
+  color: #fff !important;
+  background: rgba(0, 180, 216, 0.1) !important;
+}
+.sidebar-menu li a:hover::before,
+.sidebar-menu li.current-menu-item a::before {
+  transform: translateY(-50%) scaleY(1);
+  opacity: 1;
+}
+.sidebar-footer {
+  padding: 20px 0 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.09);
+  margin-top: 10px;
+}
+.sidebar-lang-sw {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.06) !important;
+  border-radius: 12px;
+  padding: 4px;
+}
+
+/* ============================================================
+   Z-INDEX FIX: Mobile offcanvas must appear above the header
+   Header z-index = 9999  →  offcanvas needs > 9999
+   ============================================================ */
+
+/* Bootstrap offcanvas (#canvasMobile, #canvnasMegamenu) */
+.offcanvas {
+  --bs-offcanvas-zindex: 100000 !important;
+  z-index: 100000 !important;
+}
+/* Bootstrap offcanvas backdrop */
+.offcanvas-backdrop {
+  z-index: 99999 !important;
+}
+
+/* Custom mobile-sidebar (.mobile-sidebar) */
+.mobile-sidebar {
+  z-index: 100000 !important;
+}
+/* Overlay behind mobile-sidebar */
+.mobile-sidebar::after {
+  z-index: 99999 !important;
+}
+
+/* ============================================================
+   18. RESPONSIVE — MOBILE / TABLET
+   ============================================================ */
+
+/* Make nav-blob effects not overflow on small screens */
+@media (max-width: 1199px) {
+  /* Blob effect: disable on mobile nav (not visible anyway) */
+  .nav-blob { display: none !important; }
+
+  /* Logo glow softer on small header */
+  .logo-header2 a { filter: none; }
+
+}
+
+@media (max-width: 767px) {
+  /* entrance animation: instant on mobile to avoid jank */
+  .nav-entrance { animation: none !important; opacity: 1 !important; }
+
+  /* 3D logo: disable on mobile (too heavy) */
+  .logo-header2 { perspective: none !important; }
+  .logo-header2 a { transform: none !important; animation: none !important; }
+  .logo-header2 a::after { display: none !important; }
+
+}
+
+/* Mobile nav: ensure full height on iPhone notch */
+@media (max-width: 767px) {
+  .mobile-nav-wrap .inner-mobile-nav {
+    padding: 16px !important;
+    padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+  .mobile-nav-wrap {
+    max-width: 280px !important;
+  }
+  #menu-mobile > li > a {
+    font-size: 15px !important;
+    padding: 13px 6px 13px 12px !important;
+  }
+}
+
+/* Final mobile offcanvas polish: loaded last, so it owns the mobile menu state. */
+@media (max-width: 767px) {
+  #canvasMobile.offcanvas-start.show:not(.hiding),
+  #canvasMobile.offcanvas-start.showing {
+    transform: none !important;
+  }
+
+  #canvasMobile .btn-close {
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+    min-height: 38px !important;
+    opacity: 1 !important;
+    filter: none !important;
+    background-color: rgba(255, 255, 255, 0.12) !important;
+    border: 1px solid rgba(255, 255, 255, 0.34) !important;
+    border-radius: 10px !important;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22) !important;
+    position: relative !important;
+    background-image: none !important;
+    transition: background-color 0.16s ease, border-color 0.16s ease !important;
+  }
+
+  #canvasMobile .btn-close::before,
+  #canvasMobile .btn-close::after {
+    content: "" !important;
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    width: 18px !important;
+    height: 2px !important;
+    border-radius: 999px !important;
+    /* background: #eef5f8 !important; */
+    transform-origin: center !important;
+  }
+
+  #canvasMobile .btn-close::before {
+    transform: translate(-50%, -50%) rotate(45deg) !important;
+  }
+
+  #canvasMobile .btn-close::after {
+    transform: translate(-50%, -50%) rotate(-45deg) !important;
+  }
+
+  #canvasMobile .btn-close:hover,
+  #canvasMobile .btn-close:focus-visible {
+    background-color: #30d5c8 !important;
+    border-color: #30d5c8 !important;
+    outline: none !important;
+  }
+
+  #canvasMobile .btn-close:hover::before,
+  #canvasMobile .btn-close:hover::after,
+  #canvasMobile .btn-close:focus-visible::before,
+  #canvasMobile .btn-close:focus-visible::after {
+    background: #07233a !important;
+  }
+
+  #canvasMobile #menu-mobile > li > a {
+    background: rgba(255, 255, 255, 0.08) !important;
+    color: #ffffff !important;
+    letter-spacing: 0 !important;
+    overflow: visible !important;
+    text-indent: 0 !important;
+    white-space: normal !important;
+  }
+
+  #canvasMobile #menu-mobile > li.current-menu-item > a,
+  #canvasMobile #menu-mobile > li.current-menu-mobile-item > a {
+    background: rgba(114, 255, 240, 0.16) !important;
+    color: #ffffff !important;
+  }
+
+  #canvasMobile #menu-mobile > li.current-menu-item > a::before,
+  #canvasMobile #menu-mobile > li.current-menu-mobile-item > a::before {
+    opacity: 0 !important;
+    transform: translateY(-50%) scaleY(0) !important;
+  }
+
+  #mobileNavLang {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    padding: 14px 0 0 !important;
+    margin-top: 10px !important;
+  }
+
+  #mobileNavLang .language-switcher {
+    width: max-content !important;
+    max-width: 100% !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    padding: 3px !important;
+    border-radius: 8px !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  }
+
+  #mobileNavLang .lang-btn {
+    width: 30px !important;
+    min-width: 30px !important;
+    height: 28px !important;
+    min-height: 28px !important;
+    max-height: 28px !important;
+    padding: 0 !important;
+    border-radius: 6px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  #mobileNavLang .lang-btn.lang-active {
+    /* background: #eef5f8 !important; */
+    box-shadow: 0 6px 16px rgba(255, 255, 255, 0.16) !important;
+  }
+
+  #mobileNavLang .lang-code {
+    display: none !important;
+  }
+
+  #mobileNavLang .lang-flag {
+    width: 18px !important;
+    height: 13px !important;
+    flex: 0 0 18px !important;
+  }
+}

@@ -1,0 +1,420 @@
+﻿<header class="header header-sticky" id="header">
+    <link rel="stylesheet" href="css/header-premium.css">
+    <div class="header-content flex justify-content-between align-items-center">
+        <div class="header-left flex align-items-center">
+            <div class="logo-header2">
+                <a href="index.html">
+                    <img src="image/logo/LOGO-3.PNG" alt="Future Next Group Logo">
+                </a>
+
+            </div>
+            <nav class="main-menu">
+                <ul class="menu-primary-menu">
+                    <li class="menu-item" data-page="index.html">
+                        <a href="index.html" class="item-link body-2"><span>Home</span></a>
+                    </li>
+                    
+                    <li class="menu-item menu-item-has-children" data-page="porfolio-list.html">
+                        <a href="porfolio-list.html" class="item-link body-2"><span>Products</span></a>
+                        <button type="button" class="product-dropdown-toggle" aria-label="Open product list" aria-haspopup="true" aria-expanded="false"></button>
+                        <ul class="sub-menu sub-menu-services">
+                            <li class="sub-menu-item has-child">
+                                <a href="services-details.html" class="item-link-2">
+                                    <span class="service-title">Product Categories</span>
+                                </a>
+                                <ul class="sub-menu sub-menu-flyout">
+                                    <li class="sub-menu-item">
+                                        <a href="porfolio-electronics.html" class="item-link-2">
+                                            <span class="service-subtitle">Electronics &amp; Electrical Appliances</span>
+                                            <span class="service-title">?????????????????????</span>
+                                        </a>
+                                    </li>
+                                    <li class="sub-menu-item">
+                                        <a href="porfolio-spare-parts.html" class="item-link-2">
+                                            <span class="service-subtitle">Spare Parts &amp; Accessories</span>
+                                            <span class="service-title">?????????????????????</span>
+                                        </a>
+                                    </li>
+                                    <li class="sub-menu-item">
+                                        <a href="porfolio-security.html" class="item-link-2">
+                                            <span class="service-subtitle">Security Systems</span>
+                                            <span class="service-title">????????????????????</span>
+                                        </a>
+                                    </li>
+                                    <li class="sub-menu-item">
+                                        <a href="porfolio-solar.html" class="item-link-2">
+                                            <span class="service-subtitle">Solar Cell Solutions</span>
+                                            <span class="service-title">??????????? Solar Cell</span>
+                                        </a>
+                                    </li>
+                                    <li class="sub-menu-item">
+                                        <a href="porfolio-it-equipment.html" class="item-link-2">
+                                            <span class="service-subtitle">IT Equipment</span>
+                                            <span class="service-title">??????? IT</span>
+                                        </a>
+                                    </li>
+                                    <li class="sub-menu-item">
+                                        <a href="porfolio-assembly.html" class="item-link-2">
+                                            <span class="service-subtitle">Assembly &amp; Integration Products</span>
+                                            <span class="service-title">??????????????????????</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="menu-item" data-page="services">
+                        <a href="services.html" class="item-link body-2"><span>Services</span></a>
+                    </li>
+                    <li class="menu-item" data-page="about-us.html">
+                        <a href="about-us.html" class="item-link body-2"><span>About Us</span></a>
+                    </li>
+                    <li class="menu-item" data-page="contact.html">
+                        <a href="contact.html" class="item-link body-2"><span>Contact Us</span></a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="header-right">
+            <!-- Hide Menu Button -->
+            <button id="menuHideBtn" class="hdr-tool-btn" title="???? menu">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/>
+                    <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/>
+                    <line x1="1" y1="1" x2="23" y2="23"/>
+                </svg>
+                <span>Hide</span>
+            </button>
+
+            <!-- Layout Toggle Button -->
+            <button id="layoutToggleBtn" class="hdr-tool-btn" title="Switch menu position">
+                <svg id="layoutToggleIcon" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="3" width="20" height="4" rx="1"/>
+                    <line x1="2" y1="11" x2="22" y2="11"/>
+                    <line x1="2" y1="15" x2="22" y2="15"/>
+                    <line x1="2" y1="19" x2="22" y2="19"/>
+                </svg>
+                <span id="layoutToggleLabel">Sidebar</span>
+            </button>
+
+            <!-- Color Customizer Button -->
+            <button id="colorCustomizerBtn" class="hdr-tool-btn" title="Customize colors">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <circle cx="13.5" cy="6.5" r="1.5"/>
+                    <circle cx="17.5" cy="10.5" r="1.5"/>
+                    <circle cx="8.5" cy="7.5" r="1.5"/>
+                    <circle cx="6.5" cy="12.5" r="1.5"/>
+                    <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125 0-.922.75-1.687 1.688-1.687H16c2.757 0 5-2.243 5-5 0-4.418-4.03-8-9-8z"/>
+                </svg>
+                <span>Colors</span>
+            </button>
+
+            <!-- Language Switcher -->
+            <div class="language-switcher hdr-lang-sw" id="langSwitcher">
+                <a href="#" class="lang-btn lang-th" id="langBtnTh" title="???????">
+                    <img src="https://flagcdn.com/th.svg" alt="TH" class="lang-flag">
+                    <span class="lang-code">TH</span>
+                </a>
+                <a href="#" class="lang-btn lang-en" id="langBtnEn" title="English">
+                    <img src="https://flagcdn.com/gb.svg" alt="EN" class="lang-flag">
+                    <span class="lang-code">EN</span>
+                </a>
+            </div>
+
+            <!-- Megamenu Button (desktop) -->
+            <!-- <div class="nav-megamenu">
+                <a href="#canvnasMegamenu" data-bs-toggle="offcanvas" class="megamenu-btn">
+                    <div class="burger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </a>
+            </div> -->
+
+            <!-- Mobile Menu Button -->
+            <div class="mobile-button nav-item d-xl-none">
+                <a href="#canvasMobile" data-bs-toggle="offcanvas">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Floating restore button (visible when menu is hidden) -->
+<button id="menuShowBtn" class="menu-show-btn" title="???? menu">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+        <circle cx="12" cy="12" r="3"/>
+    </svg>
+    <span class="msb-text">Menu</span>
+</button>
+
+<!-- Color Customizer Panel -->
+<div id="colorCustomizerPanel" class="color-customizer-panel">
+    <div class="ccp-header">
+        <span class="ccp-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" style="margin-right:6px;vertical-align:middle;">
+                <circle cx="13.5" cy="6.5" r="1.5"/>
+                <circle cx="17.5" cy="10.5" r="1.5"/>
+                <circle cx="8.5" cy="7.5" r="1.5"/>
+                <circle cx="6.5" cy="12.5" r="1.5"/>
+                <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125 0-.922.75-1.687 1.688-1.687H16c2.757 0 5-2.243 5-5 0-4.418-4.03-8-9-8z"/>
+            </svg>
+            Menu Colors
+        </span>
+        <button id="colorCustomizerClose" class="ccp-close" title="Close">&times;</button>
+    </div>
+    <div class="ccp-body">
+        <!-- BG Mode Toggle -->
+        <div class="ccp-row">
+            <label class="ccp-label">
+                <span class="ccp-dot" id="cpBgDot"></span>
+                Background
+            </label>
+            <div class="ccp-mode-toggle">
+                <button class="ccp-mode-btn ccp-mode-active" id="cpBgModeSolid">Solid</button>
+                <button class="ccp-mode-btn" id="cpBgModeGrad">Gradient</button>
+                <button class="ccp-mode-btn" id="cpBgModeRadial">Radial</button>
+            </div>
+        </div>
+        <!-- Color 1 -->
+        <div class="ccp-row ccp-bg-sub">
+            <label class="ccp-label" for="cpBg">Color 1</label>
+            <input type="color" id="cpBg" class="ccp-input" title="Header background color">
+        </div>
+        <!-- Color 2 (gradient / radial) -->
+        <div class="ccp-row ccp-bg-sub ccp-grad-only" id="cpGradColor2Row">
+            <label class="ccp-label" for="cpBg2">Color 2</label>
+            <input type="color" id="cpBg2" class="ccp-input" value="#43BAFF">
+        </div>
+        <!-- Color 3 (gradient / radial) -->
+        <div class="ccp-row ccp-bg-sub ccp-grad-only" id="cpGradColor3Row">
+            <label class="ccp-label" for="cpBg3">Color 3</label>
+            <input type="color" id="cpBg3" class="ccp-input" value="#0a1a3a">
+        </div>
+        <!-- Direction (linear gradient only) -->
+        <div class="ccp-row ccp-bg-sub ccp-grad-only ccp-linear-only" id="cpGradDirRow">
+            <label class="ccp-label" for="cpGradDir">Direction</label>
+            <select id="cpGradDir" class="ccp-select">
+                <option value="to right">? Horizontal</option>
+                <option value="135deg">? Diagonal ?</option>
+                <option value="to bottom">? Vertical</option>
+                <option value="to top right">? Diagonal ?</option>
+                <option value="45deg">? Diagonal ?</option>
+            </select>
+        </div>
+        <!-- Preview strip -->
+        <div class="ccp-bg-preview" id="cpBgPreview"></div>
+        <div class="ccp-row">
+            <label class="ccp-label" for="cpFont">
+                <span class="ccp-dot" id="cpFontDot"></span>
+                Font Color
+            </label>
+            <input type="color" id="cpFont" class="ccp-input" title="Menu font color">
+        </div>
+        <div class="ccp-row">
+            <label class="ccp-label" for="cpAccent">
+                <span class="ccp-dot" id="cpAccentDot"></span>
+                Accent / Active
+            </label>
+            <input type="color" id="cpAccent" class="ccp-input" title="Active and highlight color">
+        </div>
+        <div class="ccp-row">
+            <label class="ccp-label" for="cpBorder">
+                <span class="ccp-dot" id="cpBorderDot"></span>
+                Border Color
+            </label>
+            <input type="color" id="cpBorder" class="ccp-input" title="Header border and divider color">
+        </div>
+        <div class="ccp-row">
+            <label class="ccp-label" for="cpPageBg">
+                <span class="ccp-dot" id="cpPageBgDot"></span>
+                Page Background
+            </label>
+            <input type="color" id="cpPageBg" class="ccp-input" title="Website background color">
+        </div>
+
+        <!-- -- Wave section -- -->
+        <div class="ccp-section-divider">
+            <span>Wave</span>
+            <label class="ccp-toggle-wrap" title="Show / Hide wave">
+                <input type="checkbox" id="cpWaveShow" checked>
+                <span class="ccp-toggle-track"><span class="ccp-toggle-thumb"></span></span>
+            </label>
+        </div>
+        <div id="cpWaveControls">
+            <div class="ccp-row ccp-bg-sub">
+                <label class="ccp-label" for="cpWaveBack">Back Wave</label>
+                <input type="color" id="cpWaveBack" class="ccp-input" value="#1b3e7a" title="Back wave color">
+            </div>
+            <div class="ccp-row ccp-bg-sub">
+                <label class="ccp-label" for="cpWaveFront">Front Wave</label>
+                <input type="color" id="cpWaveFront" class="ccp-input" value="#00b4d8" title="Front wave color">
+            </div>
+            <div class="ccp-row ccp-bg-sub">
+                <label class="ccp-label" for="cpWaveHeight">Height</label>
+                <div class="ccp-slider-wrap">
+                    <input type="range" id="cpWaveHeight" class="ccp-range" min="20" max="120" value="60" step="4">
+                    <span id="cpWaveHeightVal" class="ccp-range-val">60px</span>
+                </div>
+            </div>
+            <div class="ccp-row ccp-bg-sub">
+                <label class="ccp-label" for="cpWaveOpacity">Opacity</label>
+                <div class="ccp-slider-wrap">
+                    <input type="range" id="cpWaveOpacity" class="ccp-range" min="10" max="100" value="85" step="5">
+                    <span id="cpWaveOpacityVal" class="ccp-range-val">85%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ccp-footer">
+        <button id="cpReset" class="ccp-btn ccp-btn-reset">Reset Default</button>
+        <button id="cpApply" class="ccp-btn ccp-btn-apply">Apply</button>
+    </div>
+    
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    /* -- Active page highlight -- */
+    const currentPage = window.location.pathname.split("/").pop();
+    document.querySelectorAll(".menu-item").forEach(item => {
+        if (item.dataset.page === currentPage) {
+            item.classList.add("active");
+        }
+    });
+
+    /* -- Premium menu effects (skip in sidebar mode) -- */
+    function initMenuEffects() {
+        const isSidebar = document.body.classList.contains("nav-sidebar");
+        const menuList  = document.querySelector(".menu-primary-menu");
+        if (!menuList) return;
+
+        /* 1. Inject shimmer element into each link */
+        menuList.querySelectorAll(".item-link").forEach(link => {
+            if (!link.querySelector(".menu-item-shimmer")) {
+                const shimmer = document.createElement("span");
+                shimmer.className = "menu-item-shimmer";
+                link.appendChild(shimmer);
+            }
+        });
+
+        /* 2. Sliding blob that follows the hovered item */
+        if (!isSidebar) {
+            let blob = menuList.querySelector(".menu-nav-blob");
+            if (!blob) {
+                blob = document.createElement("div");
+                blob.className = "menu-nav-blob";
+                menuList.insertBefore(blob, menuList.firstChild);
+            }
+
+            const items = menuList.querySelectorAll(".menu-item");
+            items.forEach(item => {
+                item.addEventListener("mouseenter", () => {
+                    const listRect = menuList.getBoundingClientRect();
+                    const itemRect = item.getBoundingClientRect();
+                    blob.style.left  = (itemRect.left - listRect.left) + "px";
+                    blob.style.width = itemRect.width + "px";
+                    blob.classList.add("is-visible");
+                });
+            });
+            menuList.addEventListener("mouseleave", () => {
+                blob.classList.remove("is-visible");
+            });
+        }
+
+        /* 3. Ripple on click */
+        menuList.querySelectorAll(".item-link").forEach(link => {
+            link.addEventListener("click", function (e) {
+                const ripple = document.createElement("span");
+                ripple.className = "menu-ripple";
+                const rect = this.getBoundingClientRect();
+                ripple.style.left = (e.clientX - rect.left) + "px";
+                ripple.style.top  = (e.clientY - rect.top)  + "px";
+                this.appendChild(ripple);
+                ripple.addEventListener("animationend", () => ripple.remove());
+            });
+        });
+
+        /* 4. Magnetic tilt (desktop only, top-nav only) */
+        if (!isSidebar && window.matchMedia("(pointer: fine)").matches) {
+            menuList.querySelectorAll(".item-link").forEach(link => {
+                link.addEventListener("mousemove", function (e) {
+                    const rect = this.getBoundingClientRect();
+                    const cx   = rect.left + rect.width  / 2;
+                    const cy   = rect.top  + rect.height / 2;
+                    const dx   = (e.clientX - cx) / (rect.width  / 2);
+                    const dy   = (e.clientY - cy) / (rect.height / 2);
+                    this.style.transform =
+                        `scale(1.04) rotateX(${-dy * 5}deg) rotateY(${dx * 6}deg) translateY(-1px)`;
+                });
+                link.addEventListener("mouseleave", function () {
+                    this.style.transform = "";
+                });
+            });
+        }
+    }
+
+    initMenuEffects();
+
+    /* -- Logo 3D magnetic tilt -- */
+    (function initLogo3D() {
+        const logoAnchor = document.querySelector(".logo-header2 a");
+        if (!logoAnchor) return;
+
+        const isFine = window.matchMedia("(pointer: fine)").matches;
+
+        // Start idle float animation
+        logoAnchor.classList.add("logo-idle");
+
+        if (!isFine) return;
+
+        logoAnchor.addEventListener("mouseenter", () => {
+            logoAnchor.classList.remove("logo-idle");
+            logoAnchor.style.animation = "none";
+        });
+
+        logoAnchor.addEventListener("mousemove", (e) => {
+            if (document.body.classList.contains("nav-sidebar")) return;
+            const rect = logoAnchor.getBoundingClientRect();
+            const cx = rect.left + rect.width  / 2;
+            const cy = rect.top  + rect.height / 2;
+            const dx = (e.clientX - cx) / (rect.width  / 2);  // -1 to 1
+            const dy = (e.clientY - cy) / (rect.height / 2);  // -1 to 1
+            const rotY =  dx * 22;   // deg
+            const rotX = -dy * 16;   // deg
+            const tx   =  dx * 4;    // px parallax
+            const ty   =  dy * 3;
+            logoAnchor.style.transform =
+                `perspective(600px) rotateX(${rotX}deg) rotateY(${rotY}deg) translate(${tx}px,${ty}px) scale(1.06)`;
+        });
+
+        logoAnchor.addEventListener("mouseleave", () => {
+            logoAnchor.style.transform = "";
+            // Resume float after spring-back
+            setTimeout(() => {
+                logoAnchor.classList.add("logo-idle");
+                logoAnchor.style.animation = "";
+            }, 350);
+        });
+    })();
+
+    /* Re-init when layout mode is toggled (top-nav ? sidebar) */
+    const layoutBtn = document.getElementById("layoutToggleBtn");
+    if (layoutBtn) {
+        layoutBtn.addEventListener("click", () => {
+            /* Wait for class toggle to settle */
+            setTimeout(initMenuEffects, 50);
+        });
+    }
+});
+</script>
+<!-- /.color-customizer-panel -->
