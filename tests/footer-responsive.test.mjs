@@ -5,6 +5,16 @@ import { join } from "node:path";
 const css = readFileSync(join(process.cwd(), "css", "footer-cards.css"), "utf8");
 
 assert.ok(
+    /\.footer-company,\s*\.footer-address,\s*\.footer-nav\s+a,\s*\.footer-heading,\s*\.footer-contact\s+a,\s*\.footer-contact\s+\.footer-phone,\s*\.footer-copyright\s*\{[\s\S]*?font-size:\s*14px;/.test(css),
+    "footer text should use a consistent 14px font size"
+);
+
+assert.ok(
+    !/@media\s*\(max-width:\s*767px\)[\s\S]*?(?:\.footer-company|\.footer-address|\.footer-nav\s+a|\.footer-contact\s+a|\.footer-contact\s+\.footer-phone|\.footer-copyright)\s*\{[\s\S]*?font-size:\s*(?!14px)[^;]+;/.test(css),
+    "mobile footer text should not override the consistent 14px font size"
+);
+
+assert.ok(
     /@media\s*\(min-width:\s*768px\)\s*and\s*\(max-width:\s*991px\)\s*\{[\s\S]*?\.footer-middle\s*\{[\s\S]*?grid-template-columns:\s*1\.4fr\s*1fr\s*1\.1fr\s*!important;/.test(css),
     "iPad mini and iPad Air footer should use the same three-column layout as iPad Pro"
 );

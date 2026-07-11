@@ -92,8 +92,17 @@
     object-fit: contain;
 }
 
+.footer-company,
+.footer-address,
+.footer-nav a,
+.footer-heading,
+.footer-contact a,
+.footer-contact .footer-phone,
+.footer-copyright {
+    font-size: 14px;
+}
+
 .footer-company {
-    font-size: 18px;
     font-weight: 700;
     color: #f3dea0;
     line-height: 1.5;
@@ -101,7 +110,6 @@
 }
 
 .footer-address {
-    font-size: 14.5px;
     line-height: 1.9;
     color: rgba(232, 207, 134, .75);
     margin-bottom: 26px;
@@ -153,7 +161,6 @@
 
 .footer-nav a {
     color: #e8cf86;
-    font-size: 15px;
     font-weight: 600;
     letter-spacing: .02em;
     text-transform: uppercase;
@@ -170,7 +177,6 @@
 ========================= */
 
 .footer-heading {
-    font-size: 16px;
     font-weight: 700;
     color: #f3dea0;
     letter-spacing: .02em;
@@ -229,7 +235,6 @@
 
 .footer-contact a {
     color: rgba(232, 207, 134, .9);
-    font-size: 15px;
     transition: .25s;
 }
 
@@ -238,7 +243,6 @@
 }
 
 .footer-contact .footer-phone {
-    font-size: 22px;
     font-weight: 700;
     color: #f3dea0;
 }
@@ -277,7 +281,6 @@
     padding: 22px 0 30px;
     border-top: 1px solid rgba(212, 183, 101, .25);
     text-align: center;
-    font-size: 14px;
     letter-spacing: .02em;
     color: rgba(232, 207, 134, .8);
 }
@@ -444,13 +447,11 @@
     }
 
     .footer-company {
-        font-size: 16px !important;
         line-height: 1.45 !important;
         margin-bottom: 10px !important;
     }
 
     .footer-address {
-        font-size: 13.5px !important;
         line-height: 1.75 !important;
         margin-bottom: 18px !important;
     }
@@ -468,7 +469,6 @@
     }
 
     .footer-nav a {
-        font-size: 13px !important;
         line-height: 1.35 !important;
         overflow-wrap: anywhere !important;
     }
@@ -496,12 +496,7 @@
     }
 
     .footer-contact a {
-        font-size: 14px !important;
         overflow-wrap: anywhere !important;
-    }
-
-    .footer-contact .footer-phone {
-        font-size: 19px !important;
     }
 
     .footer-dbd {
@@ -530,7 +525,6 @@
     .footer-copyright {
         margin-top: 34px !important;
         padding: 18px 12px 24px !important;
-        font-size: 12.5px !important;
         line-height: 1.55 !important;
     }
 }

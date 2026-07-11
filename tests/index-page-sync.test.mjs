@@ -44,7 +44,7 @@ assert.equal(
 );
 
 assert.ok(
-    englishOfferings.some((item) => item.includes("After-sales Services") && item.includes("Maintenance")),
+    englishOfferings.some((item) => item.includes("After-sales Support") && item.includes("Maintenance")),
     "English Key Offerings should include after-sales and maintenance in the combined final offering"
 );
 

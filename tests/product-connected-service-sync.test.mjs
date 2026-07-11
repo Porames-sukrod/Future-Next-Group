@@ -14,7 +14,7 @@ const pages = [
 const thaiHeading = "บริการที่เชื่อมต่อกัน";
 const thaiBody = "หมวดผลิตภัณฑ์นี้สามารถเชื่อมต่อกับการจัดหา โลจิสติกส์ การติดตั้ง การออกแบบระบบ การบำรุงรักษา และบริการหลังการขาย";
 const englishHeading = "Connected Service";
-const englishBody = "This product category can connect with sourcing, logistics, installation, system design, maintenance, and after-sales support.";
+const englishBody = "This product category can be integrated with sourcing, logistics, installation, system design, maintenance, and after-sales support.";
 const visibleText = (html) => html
     .replace(/<[^>]+>/g, " ")
     .replace(/&amp;/g, "&")
