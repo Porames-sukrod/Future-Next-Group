@@ -10,8 +10,23 @@ assert.ok(
 );
 
 assert.ok(
+    /\.footer-company,\s*\.footer-address,\s*\.footer-nav\s+a,\s*\.footer-heading,\s*\.footer-contact\s+a,\s*\.footer-contact\s+\.footer-phone,\s*\.footer-copyright\s*\{[\s\S]*?font-weight:\s*400;/.test(css),
+    "footer text should use a consistent font weight"
+);
+
+assert.ok(
+    /\.footer-map-btn\s*\{[\s\S]*?font-weight:\s*400;/.test(css),
+    "footer map button should use the same font weight as footer text"
+);
+
+assert.ok(
     !/@media\s*\(max-width:\s*767px\)[\s\S]*?(?:\.footer-company|\.footer-address|\.footer-nav\s+a|\.footer-contact\s+a|\.footer-contact\s+\.footer-phone|\.footer-copyright)\s*\{[\s\S]*?font-size:\s*(?!14px)[^;]+;/.test(css),
     "mobile footer text should not override the consistent 14px font size"
+);
+
+assert.ok(
+    !/(?:\.footer-company|\.footer-nav\s+a|\.footer-heading|\.footer-contact\s+\.footer-phone|\.footer-map-btn)\s*\{[\s\S]*?font-weight:\s*(?:600|700);/.test(css),
+    "footer text should not use heavier styling in individual text elements"
 );
 
 assert.ok(

@@ -100,10 +100,10 @@
 .footer-contact .footer-phone,
 .footer-copyright {
     font-size: 14px;
+    font-weight: 400;
 }
 
 .footer-company {
-    font-weight: 700;
     color: #f3dea0;
     line-height: 1.5;
     margin-bottom: 12px;
@@ -124,14 +124,14 @@
     border-radius: 6px;
     color: #e8cf86;
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: .03em;
     text-transform: uppercase;
     transition: .3s;
 }
 
 .footer-map-btn i {
-    font-size: 12px;
+    font-size: 14px;
     transform: rotate(45deg);
     transition: .3s;
 }
@@ -161,7 +161,6 @@
 
 .footer-nav a {
     color: #e8cf86;
-    font-weight: 600;
     letter-spacing: .02em;
     text-transform: uppercase;
     transition: .25s;
@@ -177,7 +176,6 @@
 ========================= */
 
 .footer-heading {
-    font-weight: 700;
     color: #f3dea0;
     letter-spacing: .02em;
     margin-bottom: 22px;
@@ -200,7 +198,7 @@
     justify-content: center;
     border-radius: 50%;
     color: #e8cf86;
-    font-size: 16px;
+    font-size: 14px;
     border: 1px solid rgba(212, 183, 101, .4);
     transition: .3s;
 }
@@ -228,7 +226,7 @@
 
 .footer-contact i {
     width: 18px;
-    font-size: 16px;
+    font-size: 14px;
     color: #d4b765;
     opacity: .95;
 }
@@ -239,11 +237,6 @@
 }
 
 .footer-contact a:hover {
-    color: #f3dea0;
-}
-
-.footer-contact .footer-phone {
-    font-weight: 700;
     color: #f3dea0;
 }
 
